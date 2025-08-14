@@ -1,0 +1,9 @@
+annotations:
+  created: "2025-08-14T06:40:16Z"
+  revision: 26ff3bc389c0e3800b21bfd0f09301bc13fb1ec8
+apiVersion: v2
+appVersion: 2.0.16-dev
+description: Deploy the MX Grid Manager cluster-orch pod
+name: orch-ui-cluster-orch
+type: application
+version: 2.0.16-dev
