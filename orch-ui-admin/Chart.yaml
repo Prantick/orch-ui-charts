@@ -3,8 +3,8 @@ annotations:
   created: "2025-08-14T06:38:27Z"
   revision: 26ff3bc389c0e3800b21bfd0f09301bc13fb1ec8
 apiVersion: v2
-appVersion: 2.0.12-dev
+appVersion: 2.0.13
 description: Deploy Edge-Native Software Platform UI Admin pods on Kubernetes
 name: orch-ui-admin
 type: application
-version: 2.0.12-dev
+version: 2.0.13
