@@ -8,6 +8,8 @@
 replicaCount: 1
 
 global:
+  ndac:
+    url: "https://console.green.srv.da.nsn-rdnet.net"
   registry:
     name: registry-rs.edgeorchestration.intel.com/edge-orch
     imagePullSecrets: []

@@ -73,6 +73,7 @@ server {
 
 {{- define "root.runtime-config" -}}
 window.__RUNTIME_CONFIG__ = {
+  NDAC: {{ .Values.global.ndac.url | quote }},
   AUTH: {{ .Values.global.auth.enabled | quote }},
   KC_URL: {{ .Values.global.auth.keycloak.url |  quote }},
   KC_REALM: {{ .Values.global.auth.keycloak.realm | quote }},
