@@ -49,14 +49,6 @@ server {
   }
   {{end }}
 
-  location ~ ^/ndac(/.*)?$ {
-    rewrite ^/ndac(/.*)?$ $1 break;
-    proxy_pass {{ .Values.global.ndac.url }};
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-  }
 
   location / {
     limit_except GET { deny  all; }
