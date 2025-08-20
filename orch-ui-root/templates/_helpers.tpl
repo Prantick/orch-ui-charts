@@ -109,12 +109,3 @@ window.__RUNTIME_CONFIG__ = {
   },
 }
 {{- end -}}
-    MB: {{ .Values.api.metadataBroker | quote }},
-    ALERT: {{ .Values.api.alertManager | quote }},
-    TM: {{ .Values.api.tenantManager | quote }},
-  },
-  VERSIONS: {
-    orchestrator: {{ .Values.versions.orchestrator | quote }},
-  },
-}
-{{- end -}}
