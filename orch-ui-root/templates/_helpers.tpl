@@ -29,7 +29,7 @@ Create chart name and version as used by the chart label.
 {{ $root := . }}
 server {
   listen 3000;
-  add_header Content-Security-Policy "frame-ancestors 'self' ";
+  add_header Content-Security-Policy "frame-ancestors 'self'; connect-src 'self' https://console.green.srv.da.nsn-rdnet.net;";
   add_header X-Frame-Options "DENY";
   add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
   add_header X-XSS-Protection "1; mode=block";
