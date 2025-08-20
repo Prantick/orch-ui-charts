@@ -77,7 +77,6 @@ server {
 window.__RUNTIME_CONFIG__ = {
   AUTH: {{ .Values.global.auth.enabled | quote }},
   KC_URL: {{ .Values.global.auth.keycloak.url | quote }},
-  NDAC: {{ .Values.global.ndac.url | quote }},
   KC_REALM: {{ .Values.global.auth.keycloak.realm | quote}},
   KC_CLIENT_ID: {{ .Values.global.auth.keycloak.client_id | quote }},
   SESSION_TIMEOUT: {{ .Values.global.session_timeout | quote }},
