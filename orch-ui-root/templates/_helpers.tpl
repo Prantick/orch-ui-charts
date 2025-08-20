@@ -29,7 +29,7 @@ Create chart name and version as used by the chart label.
 {{ $root := . }}
 server {
   listen 3000;
-  add_header Content-Security-Policy "frame-ancestors 'self'; connect-src 'self' https://console.green.srv.da.nsn-rdnet.net;";
+  add_header Content-Security-Policy "frame-ancestors 'self';";
   add_header X-Frame-Options "DENY";
   add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
   add_header X-XSS-Protection "1; mode=block";
@@ -48,6 +48,14 @@ server {
     {{- end }}
   }
   {{end }}
+
+  location /ndac/ {
+    proxy_pass {{ .Values.global.ndac.url }}/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
 
   location / {
     limit_except GET { deny  all; }
@@ -93,7 +101,7 @@ window.__RUNTIME_CONFIG__ = {
     ADMIN: {{ .Values.mfe.admin | quote }}
   },
   API: {
-    NDAC: {{ .Values.global.ndac.url | quote }},
+    NDAC: '/ndac',
     CATALOG: {{ .Values.api.catalog | quote }},
     ADM: {{ .Values.api.appDeploymentManger | quote }},
     ARM: {{ .Values.api.appResourceManger | quote }},
