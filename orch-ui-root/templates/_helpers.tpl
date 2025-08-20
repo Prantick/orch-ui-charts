@@ -49,8 +49,9 @@ server {
   }
   {{end }}
 
-  location /ndac/ {
-    proxy_pass {{ .Values.global.ndac.url }}/;
+  location ~ ^/ndac(/.*)?$ {
+    rewrite ^/ndac(/.*)?$ $1 break;
+    proxy_pass {{ .Values.global.ndac.url }};
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -107,6 +108,15 @@ window.__RUNTIME_CONFIG__ = {
     ARM: {{ .Values.api.appResourceManger | quote }},
     INFRA: {{ .Values.api.infraManager | quote }},
     CO: {{ .Values.api.clusterOrch | quote }},
+    MB: {{ .Values.api.metadataBroker | quote }},
+    ALERT: {{ .Values.api.alertManager | quote }},
+    TM: {{ .Values.api.tenantManager | quote }},
+  },
+  VERSIONS: {
+    orchestrator: {{ .Values.versions.orchestrator | quote }},
+  },
+}
+{{- end -}}
     MB: {{ .Values.api.metadataBroker | quote }},
     ALERT: {{ .Values.api.alertManager | quote }},
     TM: {{ .Values.api.tenantManager | quote }},
