@@ -38,7 +38,8 @@ spec:
       {{- end }}
       containers:
         - name: cluster-orch
-          image: "{{- if hasKey $registry "name" }}{{ $registry.name }}/{{- end -}}{{ .Values.image.repository }}:{{ tpl .Values.image.tag . }}"
+          # image: "{{- if hasKey $registry "name" }}{{ $registry.name }}/{{- end -}}{{ .Values.image.repository }}:{{ tpl .Values.image.tag . }}"
+          image: sandbox-docker-candidates.repo.cci.nokia.net/mxgrid/mxgrid-manager/orch-ui/cluster-orch:3.1
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
