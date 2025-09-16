@@ -11,7 +11,7 @@ global:
   ndac:
     url: "https://console.green.srv.da.nsn-rdnet.net"
   registry:
-    name: registry-rs.edgeorchestration.intel.com/edge-orch
+    name: sandbox-docker-candidates.repo.cci.nokia.net/mxgrid/mxgrid-manager
     imagePullSecrets: []
   auth:
     enabled: true

@@ -9,7 +9,7 @@ replicaCount: 1
 
 global:
   registry:
-    name: registry-rs.edgeorchestration.intel.com/edge-orch
+    name: sandbox-docker-candidates.repo.cci.nokia.net/mxgrid/mxgrid-manager
     imagePullSecrets: []
   ndac:
     url: "https://console.green.srv.da.nsn-rdnet.net"
